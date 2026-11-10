@@ -2,8 +2,8 @@
 **Grounded Everyday Indian Civil Legal Aid Engine & Anti-Hallucination Guardrail**
 
 * **Problem Chosen:** Problem 2 — Everyday Dispute AI Legal Aid Assistant
-* **Repository:** [https://github.com/DeepakRoat/law-ai](https://github.com/DeepakRoat/law-ai)
-* **Prototype:** Streamlit Web Console (`app.py`) powered by LangGraph & Google Gemini 2.5 Flash
+* **Live Web App:** [https://law-ai.streamlit.app/](https://law-ai.streamlit.app/)
+* **GitHub Repository:** [https://github.com/DeepakRoat/law-ai](https://github.com/DeepakRoat/law-ai)
 
 ---
 
@@ -93,6 +93,8 @@ In production scenarios (e.g., nationwide legal awareness broadcasts, televised 
 
 ## 6. Deliverables & Submission Checklist
 * [x] **Solution Doc (PDF):** [`Solution_Doc_NyayaMitra.pdf`](Solution_Doc_NyayaMitra.pdf) (Exact 2-page publication-ready PDF).
-* [x] **Prototype Link:** [https://github.com/DeepakRoat/law-ai](https://github.com/DeepakRoat/law-ai) (Deployable on Streamlit Community Cloud).
+* [x] **Live Deployed Prototype:** [https://law-ai.streamlit.app/](https://law-ai.streamlit.app/)
+* [x] **GitHub Code Repository:** [https://github.com/DeepakRoat/law-ai](https://github.com/DeepakRoat/law-ai)
 * [x] **Raw Outputs Folder:** [`/raw_outputs`](raw_outputs/) containing 4 unedited scenario execution JSON logs and documentation.
 * [x] **Walkthrough Video Script:** 3-minute structured demo script ready for recording.
+
