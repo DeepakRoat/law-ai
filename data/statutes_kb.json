@@ -1,0 +1,53 @@
+{
+  "CONSUMER_REFUND": {
+    "domain_name": "Consumer Grievance & E-Commerce Refunds",
+    "primary_act": "Consumer Protection Act, 2019",
+    "api_search_query": "Consumer Protection Act 2019 Section 2(47) Section 35 e-commerce refund deficiency",
+    "allowed_sections": {
+      "Section 2(7)": "Defines 'Consumer' as any person who buys goods or hires services for consideration (includes offline and online/e-commerce transactions).",
+      "Section 2(11)": "Defines 'Deficiency' as any fault, imperfection, shortcoming, or inadequacy in the quality, nature, and manner of performance required to be maintained by or under any law.",
+      "Section 2(47)": "Defines 'Unfair Trade Practice' including false representation of standard/quality, refusing refunds for defective goods, or stipulating unilateral 'No Return' clauses on defective deliveries.",
+      "Section 34": "Jurisdiction of District Consumer Disputes Redressal Commission: Entertains complaints where value of goods or services paid as consideration does not exceed Rs. 50 Lakhs.",
+      "Section 35": "Manner in which complaint shall be made: Can be filed electronically via the e-Daakhil portal in person without needing an advocate.",
+      "Rule 5": "Consumer Protection (E-Commerce) Rules, 2020: Mandates every e-commerce entity to appoint a Grievance Officer, acknowledge consumer complaints within 48 hours, and resolve them within 1 month."
+    },
+    "remedy_steps": [
+      "1. Raise a formal ticket with the E-Commerce Grievance Officer citing Rule 5 of the Consumer Protection (E-Commerce) Rules, 2020.",
+      "2. Register a grievance on the National Consumer Helpline (NCH - Call 1915 or consumerhelpline.gov.in).",
+      "3. Serve a Formal 15-Day Legal Notice demanding full refund plus compensation for mental harassment.",
+      "4. File an online complaint on the e-Daakhil portal (edaakhil.nic.in) under Section 35 before the District Commission."
+    ]
+  },
+  "SECURITY_DEPOSIT": {
+    "domain_name": "Landlord Security Deposit Withholding",
+    "primary_act": "Indian Contract Act, 1872 & Code of Civil Procedure, 1908",
+    "api_search_query": "Indian Contract Act Section 73 Section 74 security deposit refund lease termination",
+    "allowed_sections": {
+      "Section 73": "Indian Contract Act, 1872: Compensation for loss or damage caused by breach of contract. Unlawful withholding of a refundable security deposit after lease expiry and peaceful handover of possession constitutes actionable breach.",
+      "Section 74": "Indian Contract Act, 1872: Compensation for breach where penalty is stipulated. A landlord cannot forfeit or deduct from a security deposit arbitrarily without proving actual, quantified damage beyond normal fair wear and tear.",
+      "Order XXXVII": "Code of Civil Procedure, 1908 (CPC): Summary Suit procedure for fast-track recovery of a debt or liquidated demand in money arising out of a written contract (such as a Rent/Lease Agreement)."
+    },
+    "remedy_steps": [
+      "1. Compile handover evidence (key handover message/receipt, cleared electricity/maintenance bills, move-out video/photos).",
+      "2. Serve a Formal 15-Day Legal Notice for Recovery of Security Deposit demanding refund with 18% p.a. interest.",
+      "3. File a Summary Recovery Suit under Order XXXVII CPC in the Small Causes / Civil Court or approach the State Rent Authority."
+    ]
+  },
+  "UNPAID_SALARY": {
+    "domain_name": "Unpaid Salary & Full-and-Final Settlement",
+    "primary_act": "Payment of Wages Act, 1936 & Indian Contract Act, 1872",
+    "api_search_query": "Payment of Wages Act Section 4 Section 15 unpaid salary recovery",
+    "allowed_sections": {
+      "Section 4": "Payment of Wages Act, 1936: Mandates fixation of wage periods (not exceeding one month).",
+      "Section 5": "Payment of Wages Act, 1936: Mandates timely payment of wages within 7 to 10 days after the wage period ends, and within 2 working days of termination.",
+      "Section 15": "Payment of Wages Act, 1936: Claims arising out of unlawful deductions or delay in payment of wages can be filed before the Prescribed Labour Commissioner / Authority, who can direct payment plus compensation.",
+      "Section 73": "Indian Contract Act, 1872: For managerial/supervisory employees outside the Payment of Wages ceiling, withholding earned salary after notice period completion is a breach of employment contract.",
+      "Order XXXVII": "Code of Civil Procedure, 1908 (CPC): Summary recovery suit on the written Appointment Letter / Relieving & Full-and-Final settlement statement."
+    },
+    "remedy_steps": [
+      "1. Send a formal final reminder email to HR and Company Directors attaching your Appointment Letter, Relieving Letter, and Bank Statements.",
+      "2. Serve a Formal 15-Day Legal Notice demanding release of unpaid salary and Full-and-Final dues with interest.",
+      "3. File an online grievance on the Ministry of Labour SAMADHAN Portal (samadhan.labour.gov.in) or before the Labour Commissioner under Section 15."
+    ]
+  }
+}

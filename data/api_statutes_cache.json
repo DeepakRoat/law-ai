@@ -1,0 +1,17 @@
+{
+  "Consumer Protection Act 2019 Section 2(47) Section 35 e-commerce refund deficiency": {
+    "query": "Consumer Protection Act 2019 Section 2(47) Section 35 e-commerce refund deficiency",
+    "api_source": "local_file_only",
+    "live_records": []
+  },
+  "Indian Contract Act Section 73 Section 74 security deposit refund lease termination": {
+    "query": "Indian Contract Act Section 73 Section 74 security deposit refund lease termination",
+    "api_source": "local_file_only",
+    "live_records": []
+  },
+  "Payment of Wages Act Section 4 Section 15 unpaid salary recovery": {
+    "query": "Payment of Wages Act Section 4 Section 15 unpaid salary recovery",
+    "api_source": "local_file_only",
+    "live_records": []
+  }
+}
