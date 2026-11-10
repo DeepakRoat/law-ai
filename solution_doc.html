@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NyayaMitra - Solution Document</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,600;0,700;1,600&display=swap');
+
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #0F172A;
+    background: #FFFFFF;
+    line-height: 1.35;
+    font-size: 8.5pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page {
+    width: 100%;
+    height: 275mm;
+    max-height: 275mm;
+    overflow: hidden;
+    position: relative;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .page:last-child {
+    page-break-after: avoid;
+  }
+
+  /* Header Bar */
+  .header-card {
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    color: #FFFFFF;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title-group h1 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 15pt;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .title-group p {
+    margin: 2px 0 0 0;
+    font-size: 7.5pt;
+    color: #94A3B8;
+  }
+
+  .badge-gold {
+    background: rgba(245, 158, 11, 0.2);
+    color: #FBBF24;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    font-size: 6.5pt;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .meta-pills {
+    text-align: right;
+    font-size: 7.2pt;
+    color: #CBD5E1;
+    line-height: 1.4;
+  }
+
+  .meta-pills strong {
+    color: #FFFFFF;
+  }
+
+  /* Grid Layouts */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  /* Section Card */
+  .card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    padding: 7px 9px;
+    margin-bottom: 6px;
+  }
+
+  .card-title {
+    font-size: 8.8pt;
+    font-weight: 700;
+    color: #0F172A;
+    margin: 0 0 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 1px solid #F1F5F9;
+    padding-bottom: 3px;
+  }
+
+  .card-title span.num {
+    background: #0F172A;
+    color: #FFFFFF;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6.5pt;
+  }
+
+  p {
+    margin: 0 0 4px 0;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 14px;
+  }
+
+  li {
+    margin-bottom: 2px;
+  }
+
+  strong {
+    color: #0F172A;
+    font-weight: 600;
+  }
+
+  /* Flow Diagram */
+  .flow-box {
+    background: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    padding: 6px;
+    margin-bottom: 6px;
+  }
+
+  .flow-nodes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-size: 6.8pt;
+    font-weight: 600;
+  }
+
+  .node {
+    background: #FFFFFF;
+    border: 1px solid #94A3B8;
+    padding: 4px 6px;
+    border-radius: 4px;
+    width: 18%;
+    color: #1E293B;
+  }
+
+  .node.highlight {
+    background: #EFF6FF;
+    border-color: #3B82F6;
+    color: #1D4ED8;
+  }
+
+  .node.guard {
+    background: #ECFDF5;
+    border-color: #10B981;
+    color: #047857;
+  }
+
+  .arrow {
+    color: #94A3B8;
+    font-size: 9pt;
+  }
+
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7.2pt;
+    margin-top: 4px;
+  }
+
+  th {
+    background: #F1F5F9;
+    color: #334155;
+    text-align: left;
+    padding: 4px 6px;
+    font-weight: 600;
+    border: 1px solid #E2E8F0;
+  }
+
+  td {
+    padding: 3px 6px;
+    border: 1px solid #E2E8F0;
+    color: #334155;
+  }
+
+  .badge-pass {
+    background: #ECFDF5;
+    color: #065F46;
+    border: 1px solid #A7F3D0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 6.2pt;
+  }
+
+  /* Footer */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 6.8pt;
+    color: #64748B;
+    border-top: 1px solid #E2E8F0;
+    padding-top: 4px;
+    margin-top: auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========================== PAGE 1 ========================== -->
+<div class="page">
+  <div>
+    <!-- Top Header -->
+    <div class="header-card">
+      <div class="title-group">
+        <h1>⚖️ NyayaMitra <span class="badge-gold">Solution Document</span></h1>
+        <p>Grounded Everyday Indian Civil Legal Aid Engine & Anti-Hallucination Guardrail</p>
+      </div>
+      <div class="meta-pills">
+        <strong>Problem Selected:</strong> Everyday Dispute AI Assistant (Problem 2)<br>
+        <strong>Author / Roll No:</strong> Deepak Roat | <strong>Branch:</strong> Computer Science<br>
+        <strong>GitHub Repository:</strong> github.com/DeepakRoat/law-ai
+      </div>
+    </div>
+
+    <!-- Section 1: Problem Selection & Motivation -->
+    <div class="card">
+      <div class="card-title"><span class="num">1</span> Problem Statement &amp; Selection Rationale</div>
+      <p>
+        Over <strong>70% of common grievances</strong> in India revolve around everyday civil disputes: unreturned rental security deposits (tenancy), withheld wages / full-and-final settlements (unpaid salary), and defective online deliveries without refunds (consumer protection). While individuals suffer distinct economic damages (typically ₹15,000–₹1,00,000), hiring a human advocate is economically prohibitive and procedure-heavy.
+      </p>
+      <p>
+        <strong>Why this problem:</strong> Ordinary citizens lack the legal vocabulary to assert their statutory rights, draft formal notices, or counter counterparty excuses. Standard LLMs hallucinate non-existent sections, cite wrong acts, or attempt to offer dangerous pseudo-legal advice in criminal matters. <em>NyayaMitra</em> resolves this through a deterministic statutory grounding database, a LangGraph state machine, and a zero-tolerance citation guardrail.
+      </p>
+    </div>
+
+    <!-- Section 2: Core Assumptions & Boundaries -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title"><span class="num">2</span> Core Assumptions</div>
+        <ul>
+          <li><strong>Messy Multi-lingual Inputs:</strong> Users state problems in raw colloquial phrasing (Hinglish, Hindi, regional English) without legal terms.</li>
+          <li><strong>Statutory Ground Truth:</strong> Advice must strictly anchor on codified Acts (Consumer Protection Act 2019, Model Tenancy Act, Payment of Wages Act 1936 / Industrial Disputes Act).</li>
+          <li><strong>Zero Criminal Jurisdiction:</strong> Any police FIR, arrest, or complex criminal/title matter is outside AI safety boundaries and triggers a strict human lawyer referral.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="num">3</span> Scope Boundaries</div>
+        <ul>
+          <li><strong>Supported Domains (3):</strong> Consumer Refunds, Landlord Security Deposits, Unpaid Wages/F&amp;F.</li>
+          <li><strong>Hard Out-of-Scope Escapes:</strong> IPC/BNS criminal offences, bail, cheque bounce criminal trials, property title suits, and matrimonial litigation.</li>
+          <li><strong>Role Limitation:</strong> Acts as an information and document preparation aid under Advocates Act, 1961 guidelines, not formal representation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 3: Architecture & Flow -->
+    <div class="card">
+      <div class="card-title"><span class="num">4</span> System Architecture &amp; Execution Pipeline</div>
+      <p style="font-size: 7.8pt; color: #475569; margin-bottom: 5px;">
+        NyayaMitra is designed as a cyclic Directed Acyclic Graph (DAG) state machine using <strong>LangGraph</strong> and <strong>Google Gemini 2.5 Flash</strong> over the official <code>google-genai</code> SDK:
+      </p>
+      <div class="flow-box">
+        <div class="flow-nodes">
+          <div class="node"><strong>User Input</strong><br>(Any dialect)</div>
+          <div class="arrow">➔</div>
+          <div class="node highlight"><strong>Node 1: Intake</strong><br>Pydantic JSON Extraction</div>
+          <div class="arrow">➔</div>
+          <div class="node"><strong>Dynamic Route</strong><br>Explain / Argue / Escalate</div>
+          <div class="arrow">➔</div>
+          <div class="node"><strong>Node 2: Reasoning</strong><br>KB + Kanoon API</div>
+          <div class="arrow">➔</div>
+          <div class="node guard"><strong>Node 3: Guardrail</strong><br>Regex Citation Audit</div>
+        </div>
+      </div>
+      <div class="grid-3" style="margin-bottom: 0;">
+        <div style="font-size: 7.2pt;">
+          <strong>1. Structured Intake Engine:</strong> Uses Gemini 2.5 Flash with <code>response_schema=CaseExtraction</code> to convert unstructured stories into chronology, facts, and available proof.
+        </div>
+        <div style="font-size: 7.2pt;">
+          <strong>2. Dual-Layer Retrieval:</strong> Injects deterministic statutory provisions from <code>data/statutes_kb.json</code> supplemented by live API hits to Indian Kanoon (<code>api.kanoon.dev</code>).
+        </div>
+        <div style="font-size: 7.2pt;">
+          <strong>3. Deterministic Guardrail:</strong> Regex engine intercepts all Section/Order citations. Any statute not present in the verified KB is blocked with <code>[BLOCKED CITATION]</code>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: Workflow Modes -->
+    <div class="card">
+      <div class="card-title"><span class="num">5</span> Multi-Mode Workflow Implementations</div>
+      <div class="grid-2">
+        <div>
+          <strong>A. Explain &amp; Draft Notice (Standard Action):</strong>
+          Generates a 4-part legal aid document: (1) Fact Summary, (2) Grounded Rights in user's language, (3) Formal 15-Day Registered Post Legal Notice draft, and (4) Practice Arguing offer.
+        </div>
+        <div>
+          <strong>B. Opponent Simulator &amp; Coach:</strong>
+          Roleplays stubborn Indian counterparties (e.g. "₹45k deducted for repainting") and immediately provides coached 2-sentence legal shut-down counters.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>NyayaMitra &bull; Everyday Indian AI Legal Assistant</span>
+    <span>Page 1 of 2</span>
+  </div>
+</div>
+
+<!-- ========================== PAGE 2 ========================== -->
+<div class="page">
+  <div>
+    <!-- Header Bar Page 2 -->
+    <div class="header-card" style="padding: 7px 12px; margin-bottom: 6px;">
+      <div class="title-group">
+        <h1 style="font-size: 11pt;">⚖️ NyayaMitra: Scalability, Evaluation &amp; Failure Modes</h1>
+      </div>
+      <div class="meta-pills" style="font-size: 6.8pt;">
+        <strong>Prototype:</strong> github.com/DeepakRoat/law-ai &bull; Live Streamlit Console
+      </div>
+    </div>
+
+    <!-- Section 6: Scalability -->
+    <div class="card">
+      <div class="card-title"><span class="num">6</span> Scaling to Every Show / Production Domain ("How It Scales")</div>
+      <p>
+        In production scenarios (e.g., nationwide legal awareness broadcasts, televised consumer grievance helplines, high-volume grievance portals), NyayaMitra is architected for zero-downtime extensibility:
+      </p>
+      <ul>
+        <li><strong>Schema-Driven Knowledge Ingestion:</strong> Adding new civil legal domains (e.g., RERA real estate delay compensations, Motor Vehicle Act claims, cyber phishing refunds) requires <strong>zero pipeline code changes</strong>. Adding a new entry into <code>data/statutes_kb.json</code> automatically registers allowed sections, search queries, and remedy steps.</li>
+        <li><strong>Multi-Backend Grounding API:</strong> Modular adapter pattern in <code>statutes_loader.py</code> supports official Indian Kanoon token auth, open REST endpoints, or enterprise internal case-law vectors.</li>
+        <li><strong>Stateless Client Caching:</strong> Gemini client singleton caching (with <code>v1beta</code> HTTP options) minimizes handshake overhead, scaling easily on serverless container orchestrators (Render, Cloud Run, AWS ECS).</li>
+        <li><strong>Localized Multi-Lingual Adaptation:</strong> Prompt architecture decouples language style detection from statutory reasoning, allowing the system to scale to 12+ Indian regional dialects without retraining.</li>
+      </ul>
+    </div>
+
+    <!-- Section 7: Evaluation & Verification -->
+    <div class="card">
+      <div class="card-title"><span class="num">7</span> Evaluation &amp; How We Know It's Good</div>
+      <p>
+        We validated NyayaMitra against an end-to-end benchmark suite of authentic civil dispute test cases. Unedited raw execution logs are archived in <code>/raw_outputs</code>:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Scenario ID</th>
+            <th>Domain &amp; Input Dialect</th>
+            <th>Triggered Node</th>
+            <th>Key Output Generated</th>
+            <th>Guardrail Audit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>TC-01</strong></td>
+            <td>Defective Laptop (Hinglish)</td>
+            <td><code>explain_and_draft</code></td>
+            <td>CPA 2019 Sec 2(47), 35; Formal 15-day refund notice</td>
+            <td><span class="badge-pass">PASSED (0 Hallucinations)</span></td>
+          </tr>
+          <tr>
+            <td><strong>TC-02</strong></td>
+            <td>Landlord Deposit (English)</td>
+            <td><code>opponent_simulator</code></td>
+            <td>Rebuttal against repainting deduction + Rent Agreement cite</td>
+            <td><span class="badge-pass">PASSED (0 Hallucinations)</span></td>
+          </tr>
+          <tr>
+            <td><strong>TC-03</strong></td>
+            <td>Unpaid Salary 2-Mo (Hindi)</td>
+            <td><code>explain_and_draft</code></td>
+            <td>Payment of Wages Act Sec 15; Formal recovery notice</td>
+            <td><span class="badge-pass">PASSED (0 Hallucinations)</span></td>
+          </tr>
+          <tr>
+            <td><strong>TC-04</strong></td>
+            <td>Criminal Police FIR (Hindi)</td>
+            <td><code>escalate_to_lawyer</code></td>
+            <td>Zero fake penal codes; Direct referral to NALSA 15100 &amp; DLSA</td>
+            <td><span class="badge-pass">PASSED (Safe Refusal)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Section 8: Failure Modes & Mitigations -->
+    <div class="card">
+      <div class="card-title"><span class="num">8</span> Known Failure Modes &amp; Defensive Mitigations</div>
+      <div class="grid-2">
+        <div style="font-size: 7.2pt;">
+          <p><strong>1. Scanty / Ambiguous User Information:</strong><br>
+          <em>Failure:</em> Users sometimes type 1 line ("Company fired me"). Hallucinating details is dangerous.<br>
+          <em>Mitigation:</em> <code>CLARIFY</code> mode activates if critical facts are missing, asking at most 1–2 polite clarifying questions before drafting.</p>
+          <p><strong>2. Criminal / High-Stakes Manipulation:</strong><br>
+          <em>Failure:</em> Users asking for anticipatory bail or criminal defense strategies.<br>
+          <em>Mitigation:</em> Strict classifier redirects to <code>escalate_to_lawyer</code>, blocking all legal section hallucination and providing government legal aid contact numbers (NALSA Helpline 15100).</p>
+        </div>
+        <div style="font-size: 7.2pt;">
+          <p><strong>3. Statutory Section Hallucinations:</strong><br>
+          <em>Failure:</em> LLMs frequently invent non-existent sub-clauses.<br>
+          <em>Mitigation:</em> Regex guardrail cross-checks every cited section token against <code>data/statutes_kb.json</code>. Any mismatch is redacted.</p>
+          <p><strong>4. External Legal API Timeouts:</strong><br>
+          <em>Failure:</em> Indian Kanoon server latency or rate limits.<br>
+          <em>Mitigation:</em> Graceful fallback pipeline: if the live API is slow or offline, NyayaMitra falls back safely to verified local statutory grounding without halting execution.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 9: Deliverables Summary -->
+    <div class="card" style="margin-bottom: 0;">
+      <div class="card-title"><span class="num">9</span> Deliverables &amp; Artifact Submission Matrix</div>
+      <table style="font-size: 7pt;">
+        <tr>
+          <td style="width: 25%;"><strong>1. Solution Document</strong></td>
+          <td style="width: 75%;">This 2-page PDF (Structured rationale, assumptions, architecture, scalability, failure analysis).</td>
+        </tr>
+        <tr>
+          <td><strong>2. Prototype Code &amp; App</strong></td>
+          <td>
+            <strong>GitHub:</strong> <a href="https://github.com/DeepakRoat/law-ai" style="color: #2563EB;">https://github.com/DeepakRoat/law-ai</a> &bull;
+            <strong>Web App:</strong> Deployable on Streamlit Cloud via <code>app.py</code>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>3. Raw Outputs Folder</strong></td>
+          <td>
+            <code>/raw_outputs</code> in repository containing complete unedited test execution logs (JSON + README).
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>NyayaMitra &bull; Everyday Indian AI Legal Assistant</span>
+    <span>Page 2 of 2</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+{
+  "test_id": "TC_02_LANDLORD_DEPOSIT_SIMULATOR",
+  "description": "Landlord withholding Rs 60,000 deposit -> Practice arguing against the landlord's unfair excuses.",
+  "user_input": "I vacated my flat in Bengaluru on 30th September after giving a 1-month notice as per the rent agreement. My landlord Mr. Sharma is refusing to return my Rs 60,000 security deposit, claiming he needs Rs 45,000 to repaint the whole house and polish the floor. Help me practice arguing against him!",
+  "extracted_case_json": {
+    "detected_language": "English",
+    "domain": "SECURITY_DEPOSIT",
+    "out_of_scope_reason": null,
+    "complainant_name": null,
+    "opposite_party": "Mr. Sharma",
+    "claim_amount_inr": "60,000",
+    "chronology": [
+      {
+        "date_or_period": "Prior to 30th September",
+        "event": "User gave a 1-month notice to the landlord as per the rent agreement."
+      },
+      {
+        "date_or_period": "30th September",
+        "event": "User vacated the flat in Bengaluru."
+      },
+      {
+        "date_or_period": "After 30th September",
+        "event": "Landlord Mr. Sharma is refusing to return the Rs 60,000 security deposit."
+      },
+      {
+        "date_or_period": "After 30th September",
+        "event": "Landlord claims he needs Rs 45,000 to repaint the whole house and polish the floor."
+      }
+    ],
+    "evidence_have": [
+      "rent agreement"
+    ],
+    "evidence_missing_or_needed": [
+      "Photos or videos of the flat's condition at the time of moving in and moving out",
+      "Communication records regarding the notice and vacation",
+      "Bank statements showing security deposit payment"
+    ],
+    "missing_critical_facts": [],
+    "is_ready_for_action": true,
+    "next_mode": "OPPONENT_SIMULATOR"
+  },
+  "api_retrieval_log": {
+    "query": "Indian Contract Act Section 73 Section 74 security deposit refund lease termination",
+    "api_source": "local_file_only",
+    "live_records": []
+  },
+  "guardrail_verification": {
+    "passed": true,
+    "flagged_citations": [],
+    "cleaned_text": "Here's your practice session:\n\n### 1. Opposite Side Pushback (Roleplay as Mr. Sharma)\n\n\"Arre baba, what refund? The house needs a full repaint and the floors need polishing after you left. Rs 45,000 is a very fair estimate for the work. This is standard procedure, everyone knows this. You think I can rent it out like this? No, no, this is for wear and tear, and more. It's coming from your deposit, that's final.\"\n\n### 2. Coach's Counter-Attack (How to Reply & Win)\n\nYou need to firmly state that deductions for normal wear and tear are not permissible. Unless Mr. Sharma can prove specific, actual damage beyond normal use, he cannot arbitrarily withhold your deposit.\n\n**Your Counter-Argument:** \"Mr. Sharma, you cannot arbitrarily deduct for repainting and floor polishing as these generally fall under normal wear and tear, which is not chargeable to the tenant. Unless you can provide actual proof of specific, quantified damage beyond normal use, your deduction is unlawful. As per **Section 74 of the Indian Contract Act, 1872**, you cannot forfeit or deduct from my security deposit arbitrarily without proving actual, quantified damage beyond normal fair wear and tear, and our **rent agreement** does not stipulate such charges.\"",
+    "allowed_sections_checked": [
+      "Section 73",
+      "Section 74",
+      "Order XXXVII"
+    ]
+  },
+  "ai_final_output": "Here's your practice session:\n\n### 1. Opposite Side Pushback (Roleplay as Mr. Sharma)\n\n\"Arre baba, what refund? The house needs a full repaint and the floors need polishing after you left. Rs 45,000 is a very fair estimate for the work. This is standard procedure, everyone knows this. You think I can rent it out like this? No, no, this is for wear and tear, and more. It's coming from your deposit, that's final.\"\n\n### 2. Coach's Counter-Attack (How to Reply & Win)\n\nYou need to firmly state that deductions for normal wear and tear are not permissible. Unless Mr. Sharma can prove specific, actual damage beyond normal use, he cannot arbitrarily withhold your deposit.\n\n**Your Counter-Argument:** \"Mr. Sharma, you cannot arbitrarily deduct for repainting and floor polishing as these generally fall under normal wear and tear, which is not chargeable to the tenant. Unless you can provide actual proof of specific, quantified damage beyond normal use, your deduction is unlawful. As per **Section 74 of the Indian Contract Act, 1872**, you cannot forfeit or deduct from my security deposit arbitrarily without proving actual, quantified damage beyond normal fair wear and tear, and our **rent agreement** does not stipulate such charges.\"\n\n---\n**Guardrail & Grounding Audit:** Statutes loaded from `data/statutes_kb.json` | Live API Source: `local_file_only` | Regex Citation Check: `PASSED (0 Hallucinated Sections)`\n\n*Disclaimer: This tool provides legal information and document preparation assistance, not formal legal counsel under the Advocates Act, 1961.*"
+}
